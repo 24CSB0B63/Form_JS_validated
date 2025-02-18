@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REGISTRATION FORM</title>
+    <style>
+		body {
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			background-color: #009b77;
+			color: #ffb080;
+			text-align: center;
+			margin: 0;
+			padding: 20px;
+		}
+
+		form {
+			background-color: #13aeb4;
+			padding: 20px;
+			border-radius: 30px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+			width: 100%;
+			max-width: 50%;
+			margin: 0 auto;
+		}
+
+		h1 {
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 40px;
+			color: #000000;
+			margin-bottom: 20px;
+		}
+
+		p {
+			color: #ff8070;
+			font-size: 25px;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			border: 5px solid #AA88BB;
+			border-radius: 15px;
+			padding: 20px;
+		}
+
+		label {
+			color: rgb(122, 67, 0);
+			font-weight: bold;
+			display: block;
+			margin-top: 10px;
+			font-size: 26px;
+		}
+
+		input[type="text"],
+		input[type="number"],
+		input[type="date"],
+		input[type="email"],
+		select {
+			background-color: rgb(79, 79, 79);
+			width: 70%;
+			padding: 15px;
+			margin-top: 5px;
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+			border-radius: 15px;
+			font-size: 20px;
+			color: white;
+			box-sizing: border-box;
+		}
+
+		input[type="checkbox"] {
+			margin-right: 10px;
+			color: black;
+		}
+
+		input[type="submit"],
+		input[type="reset"] {
+			background-color: #009b77;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			margin-right: 10px;
+		}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover {
+			background-color: #007a5e;
+		}
+	</style>
+    <script>
+        function validateForm() {
+            let firstName = document.getElementById("Firstname").value;
+            let lastName = document.getElementById("Lastname").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phno").value;
+            let dob = document.getElementById("DOB").value;
+            let address = document.getElementById("address").value;
+            let pin = document.getElementById("Pin").value;
+            let state = document.getElementById("State").value;
+            let country = document.getElementById("Country").value;
+
+            if (firstName == "" || lastName == "" || email == "" || phone == "" || dob == "" || address == "" || pin == "" || state == "" || country == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form onsubmit="return validateForm()">
+        <label for="Firstname">First name:</label>
+        <input type="text" id="Firstname" name="Firstname" placeholder="Enter your first name">
+
+        <label for="Lastname">Last name:</label>
+        <input type="text" id="Lastname" name="Lastname" placeholder="Enter your last name">
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email">
+
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label>Subjects of Interest:</label>
+        <input type="checkbox" name="subjects[]" value="CSE"> CSE
+        <input type="checkbox" name="subjects[]" value="ECE"> ECE
+        <input type="checkbox" name="subjects[]" value="MME"> MME
+        <input type="checkbox" name="subjects[]" value="CHEMICAL"> CHEMICAL
+        <input type="checkbox" name="subjects[]" value="MECH"> MECH
+        <input type="checkbox" name="subjects[]" value="BIOTECH"> BIOTECH
+
+        <label>Languages Known:</label>
+        <input type="checkbox" name="languages[]" value="English"> English
+        <input type="checkbox" name="languages[]" value="Hindi"> Hindi
+        <input type="checkbox" name="languages[]" value="Kannada"> Kannada
+        <input type="checkbox" name="languages[]" value="Telugu"> Telugu
+        <input type="checkbox" name="languages[]" value="Tamil"> Tamil
+        <input type="checkbox" name="languages[]" value="Bengali"> Bengali
+        <input type="checkbox" name="languages[]" value="Marathi"> Marathi
+
+        <label for="phno">Phone Number:</label>
+        <input type="number" id="phno" name="phno" placeholder="Enter your phone number">
+
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" id="DOB" name="DOB">
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Enter your address">
+
+        <label for="Pin">Pin Code:</label>
+        <input type="number" id="Pin" name="Pin" placeholder="Enter your pin code">
+
+        <label for="State">State:</label>
+        <input type="text" id="State" name="State" placeholder="Enter your state">
+
+        <label for="Country">Country:</label>
+        <input type="text" id="Country" name="Country" placeholder="Enter your country">
+
+		<br><br>
+        <input type="reset" value="Reset">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
